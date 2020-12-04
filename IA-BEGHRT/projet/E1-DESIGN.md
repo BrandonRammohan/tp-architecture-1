@@ -18,7 +18,7 @@
 
 ### Stack Technique :
 	- Frontend : 
-		- HTML, CSS, JQuery
+		- HTML, CSS, JQuery (Intéraction utilisateur + Requêtes AJAX)
 	- Backend :
 		- JAVA
 	- Framework :
