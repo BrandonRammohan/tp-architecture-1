@@ -1,5 +1,7 @@
 ### Architecture globale :
 	- Architecture MVC
+	
+![plot](Architecture_V1.PNG)
 
 ### Modèle de donnée :
 	- Type de données :
@@ -10,6 +12,9 @@
 		- Réservations
 		- Vols
 		- Utilisateurs
+		
+![plot](SchemaBDD_V1.png.PNG)
+
 
 ### Stack Technique :
 	- Frontend : 
