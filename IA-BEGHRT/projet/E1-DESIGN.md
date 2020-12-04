@@ -13,7 +13,7 @@
 		- Vols
 		- Utilisateurs
 		
-![plot](SchemaBDD_V1.PNG)
+![plot](SchemaBDD_V1.png)
 
 
 ### Stack Technique :
