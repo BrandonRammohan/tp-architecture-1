@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BEGHRT System</title>
+  <link href="dashboard.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="dashboard.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+</head>
+
+
+<body id="body">
+
+  <!-- BANNIERE -->
+  <div class="maincontent overlay container-fluid">
+    <div class="myHeader">
+      <h1 class="text-center"> Systeme de Reservation de Vol</h1>
+    </div>
+    <br />
+    <br />
+
+    <div class="flightList container">
+      <h3 class=" choosehead text-center">Choisissez un vol:</h3>
+      <div class="row flightHeader">
+        <div class="col-sm-2">
+          <h4 class="text-center">No de Série</h4>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="text-center">No de Vol</h4>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="text-center">Nom de Vol</h4>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="text-center">Depart</h4>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="text-center">Arrivée</h4>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="text-center">Prix(€)</h4>
+        </div>
+      </div>
+
+<!-- FIN BANNIERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<!-- DEBUT AFFICHAGE DES DESTINATION  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+      
+      <div class="flightsMain">
+        
+              <div class="allFlights">
+
+                <div class="row flight 4563" id="4563">
+                  <div class="col-sm-2">
+                    <h5 class="text-center srno flightNo1"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flno flightNo1"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flnm flightNo1"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flsrc flightNo1"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center fldst flightNo1"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flprc flightNo1"></h5>
+                  </div>
+
+                </div>
+                <div class="row flight 8205" id="8205">
+                  <div class="col-sm-2">
+                    <h5 class="text-center srno flightNo2"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flno flightNo2"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flnm flightNo2"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flsrc flightNo2"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center fldst flightNo2"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flprc flightNo2"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 5455" id="5455">
+                  <div class="col-sm-2">
+                    <h5 class="text-center srno flightNo3"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flno flightNo3"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flnm flightNo3"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flsrc flightNo3"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center fldst flightNo3"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flprc flightNo3"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 2853" id="2853">
+                  <div class="col-sm-2">
+                    <h5 class="text-center srno flightNo4"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flno flightNo4"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flnm flightNo4"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flsrc flightNo4"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center fldst flightNo4"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flprc flightNo4"> </h5>
+                  </div>
+                </div>
+
+                <div class="row flight 2956" id="2956">
+                  <div class="col-sm-2">
+                    <h5 class="text-center srno flightNo5"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flno flightNo5"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flnm flightNo5"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flsrc flightNo5"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center fldst flightNo5"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flprc flightNo5"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 2653" id="2653">
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo6 srno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo6 flno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo6 flnm"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo6 flsrc"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo6 fldst"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo6 flprc"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 5959" id="5959">
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo7 srno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center   flightNo7 flno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo7 flnm"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo7 flsrc"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo7 fldst"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo7 flprc"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 2468" id="2468">
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo8 srno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center  flightNo8 flno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo8 flnm"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo8 flsrc"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo8 fldst"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo8 flprc"></h5>
+                  </div>
+                </div>
+
+                <div class="row flight 5012" id="5012">
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 srno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 flno"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 flnm"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 flsrc"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 fldst"></h5>
+                  </div>
+                  <div class="col-sm-2">
+                    <h5 class="text-center flightNo9 flprc"></h5>
+                  </div>
+                </div> 
+
+              </div>
+          </div>
+        </div>
+      </div>
+
+ <!-- FIN AFFICHAGE DES DESTINATION -->
+
+    <br />
+    <br />
+    
+  <!-- Boutton submit -->
+
+  <div class="container inputs my-3">
+   
+
+        <div class="col-sm-4">
+          <button type="button" id="flightNoBtn" class="btn btn-primary text-right">Valider</button>
+        </div>
+  </div>
+  
+</body>
+</html>

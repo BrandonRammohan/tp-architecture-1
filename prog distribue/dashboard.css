@@ -1,0 +1,90 @@
+body {
+  font-family: Jockey one;
+  background-color: #2c3335;
+  color: red;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+.myHeader {
+  padding: 10px;
+  background-color: #1d2021;
+  color: #0ab5d4;
+  padding-top: 25px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.flightList {
+  background-color: #474d4f;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h3 {
+  padding: 15px;
+  color: #eef1f2;
+  padding-bottom: 25px;
+  font-size: 35px;
+}
+
+.flightHeader {
+  background: #555e5f;
+  padding: 10px;
+  border-radius: 12px;
+  color: #0ab5d4;
+}
+.flightsMain {
+  padding-top: 25px;
+  color: white;
+}
+
+.flight {
+  padding: 5px;
+  margin: 10px;
+  border-color: #98a0a2;
+}
+
+flight:hover: {
+  opacity: 0.6;
+}
+
+.flight {
+  transition: 0.5s;
+  opacity: 1;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #98a0a2;
+}
+.flight:hover {
+  background-color: #202627;
+  color: white;
+  transform: scale(1.1);
+  padding: 20px;
+}
+
+.inputs {
+  background-color: #474d4f;
+  padding: 20px;
+  border-radius: 12px;
+  color: #eef2f2;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+}
+
+input {
+  border-radius: 10px;
+  border: 2px;
+  margin: 2px;
+}
+
+#flightNoBtn{
+ margin-left: 450px;
+}
+
+
