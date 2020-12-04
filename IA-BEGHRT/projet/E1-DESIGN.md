@@ -18,11 +18,9 @@
 
 ### Stack Technique :
 	- Frontend : 
-		- HTML, CSS, JQuery (Intéraction utilisateur + Requêtes AJAX)
+		- HTML, CSS, JQuery (Intéraction utilisateur + Requêtes AJAX), Bootstrap (Personnalisation du design)
 	- Backend :
-		- JAVA
-	- Framework :
-		- AngularJS
+		- JAVA (Fonctions et Modèles)
 	- IDE :
 		- Intellij
 	- Partage du code :
