@@ -4,7 +4,6 @@
 ### Modèle de donnée :
 ![plot](SchemaBDD_V1.png)
 
-
 ### Stack Technique :
 	- Frontend : 
 		- HTML, CSS, JQuery (Intéraction utilisateur + Requêtes AJAX), Bootstrap (Personnalisation du design)
