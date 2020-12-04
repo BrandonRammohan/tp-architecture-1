@@ -8,6 +8,7 @@
 	- Objets :
 		- Aéroport
 		- Réservations
+		- Vols
 		- Utilisateurs
 
 ### Stack Technique :
