@@ -1,5 +1,5 @@
 ### Architecture globale :
-	- Architecture MVC
+	- Architecture Microservices
 	
 ![plot](Architecture_V1.PNG)
 
