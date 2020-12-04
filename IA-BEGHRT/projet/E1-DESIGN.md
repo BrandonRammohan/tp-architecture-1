@@ -1,18 +1,7 @@
-### Architecture globale :
-	- Architecture Microservices
-	
+### Architecture globale :	
 ![plot](Architecture_V1.PNG)
 
 ### Modèle de donnée :
-	- Type de données :
-		- JSON
-		- ArrayList
-	- Objets :
-		- Aéroport
-		- Réservations
-		- Vols
-		- Utilisateurs
-		
 ![plot](SchemaBDD_V1.png)
 
 
