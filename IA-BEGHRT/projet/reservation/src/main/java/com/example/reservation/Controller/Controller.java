@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -21,7 +22,7 @@ public class Controller {
     private User activUser;
 
     @RequestMapping(value = { "/dashboard" }, method = RequestMethod.GET)
-    public ModelAndView login() throws Exception {
+    public ModelAndView displayVol() throws Exception {
         ModelAndView modelAndView = new ModelAndView();
 
         String airportfile = "src/main/resources/Json/aeroport.json";
@@ -49,6 +50,21 @@ public class Controller {
         String volfile = "src/main/resources/Json/vol.json";
 
         modelAndView.setViewName("dashboard");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
+    public ModelAndView login(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/login" }, method = RequestMethod.POST)
+    public ModelAndView loginAction(@RequestParam("email") String email) throws Exception {
+        ModelAndView modelAndView = new ModelAndView();
+        jsonService.addUser(email);
+        modelAndView.setViewName("login");
         return modelAndView;
     }
 
