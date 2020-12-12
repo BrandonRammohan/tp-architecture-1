@@ -1,11 +1,13 @@
 package com.example.reservation.JsonAccess;
 
 import com.example.reservation.Model.Aeroport;
+import com.example.reservation.Model.User;
 import com.example.reservation.Model.Vol;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -40,5 +42,33 @@ public class IJsonService implements JsonService {
             }
         }
         return null;
+    }
+
+    public void addUser(String email) throws Exception {
+        RandomAccessFile randomAccessFile = new RandomAccessFile("src/main/resources/Json/user.json", "rw");
+        long pos = randomAccessFile.length();
+        while (randomAccessFile.length() > 0) {
+            pos--;
+            randomAccessFile.seek(pos);
+            if (randomAccessFile.readByte() == ']') {
+                randomAccessFile.seek(pos);
+                break;
+            }
+        }
+        String jsonElement = "{ \"userId\":" + "\"" + email + "\"" + ", \n" +
+                             " \"email\":" + "\"" + email + "\"" +  "\n}";
+        String PathJson="src/main/resources/Json/user.json";
+        if(readFileAsString(PathJson).equals("[\n\n]")){
+            randomAccessFile.writeBytes(jsonElement + "\n]");
+        } else{
+            randomAccessFile.writeBytes(",\n" + jsonElement + "]");
+        }
+        randomAccessFile.close();
+    }
+
+    public static void writeFileAsString(String file)throws Exception
+    {
+
+
     }
 }

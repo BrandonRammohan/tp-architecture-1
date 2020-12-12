@@ -7,4 +7,5 @@ public interface JsonService {
 
     public Aeroport[] stringToJsonAirports(String PathJson) throws Exception;
     public Vol[] stringToJsonVols(String PathJson) throws Exception;
+    public void addUser(String email) throws Exception;
 }

@@ -1,3 +1,9 @@
 [
 
-]
+{ "userId":"brandon@athmane.com", 
+ "email":"brandon@athmane.com"
+}
+,
+{ "userId":"brandon@hatmane.com", 
+ "email":"brandon@hatmane.com"
+}]
