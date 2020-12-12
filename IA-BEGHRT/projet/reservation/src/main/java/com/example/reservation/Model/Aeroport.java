@@ -1,13 +1,18 @@
 package com.example.reservation.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Aeroport {
 
+    @JsonProperty("areroportId")
     private int areroportId;
 
+    @JsonProperty("nom_Aeroport")
     private String nom_Aeroport;
 
-private String code_Aeroport;
+    @JsonProperty("code_Aeroport")
+    private String code_Aeroport;
 
 
     public int getAreroportId() {
