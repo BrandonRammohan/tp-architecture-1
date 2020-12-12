@@ -6,11 +6,10 @@ import com.example.reservation.Model.Aeroport;
 import com.example.reservation.Model.User;
 import com.example.reservation.Model.Vol;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.sound.midi.Soundbank;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @org.springframework.stereotype.Controller
@@ -42,12 +41,13 @@ public class Controller {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/reserver", method = RequestMethod.POST)
-    public ModelAndView reserve(Vol vol) throws Exception {
+    @RequestMapping(value = "/reserver/{volId}", method = RequestMethod.POST)
+    public ModelAndView reserve(@PathVariable("volId") int volId) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
 
-        String airportfile = "src/main/resources/Json/aeroport.json";
-        String volfile = "src/main/resources/Json/vol.json";
+        System.out.println("Id du vol = " + volId);
+
+        jsonService.addReservation(volId,activUser.getUserId());
 
         modelAndView.setViewName("dashboard");
         return modelAndView;

@@ -1,6 +1,7 @@
 package com.example.reservation.JsonAccess;
 
 import com.example.reservation.Model.Aeroport;
+import com.example.reservation.Model.Reservation;
 import com.example.reservation.Model.User;
 import com.example.reservation.Model.Vol;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,6 +37,12 @@ public class IJsonService implements JsonService {
         return myObjects;
     }
 
+    public Reservation[] stringToJsonReservation(String PathJson) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Reservation[] myObjects = mapper.readValue(readFileAsString(PathJson), Reservation[].class);
+        return myObjects;
+    }
+
     public static String readFileAsString(String file)throws Exception
     {
         return new String(Files.readAllBytes(Paths.get(file)));
@@ -56,7 +63,6 @@ public class IJsonService implements JsonService {
         user.setEmail(email);
 
         if(!readFileAsString("src/main/resources/Json/user.json").contains(email)) {
-
             RandomAccessFile randomAccessFile = new RandomAccessFile("src/main/resources/Json/user.json", "rw");
             long pos = randomAccessFile.length();
             while (randomAccessFile.length() > 0) {
@@ -94,9 +100,37 @@ public class IJsonService implements JsonService {
             }
 
         }
-
         return user;
-
     }
+
+    public void addReservation(int volId, int userId) throws Exception {
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile("src/main/resources/Json/reservation.json", "rw");
+        long pos = randomAccessFile.length();
+        while (randomAccessFile.length() > 0) {
+            pos--;
+            randomAccessFile.seek(pos);
+            if (randomAccessFile.readByte() == ']') {
+                randomAccessFile.seek(pos);
+                break;
+            }
+        }
+
+        String PathJson="src/main/resources/Json/reservation.json";
+
+        Reservation reservations[] = this.stringToJsonReservation(PathJson);
+        int reservation_id =  reservations.length + 1;
+
+        String jsonElement = "{ \"reservationId\":" + reservation_id + ", \n" +
+                " \"userId\":" +  + userId + ", \n" +
+                " \"volId\":" +  + volId + "\n}";
+
+        if(readFileAsString(PathJson).equals("[\n\n]")){
+            randomAccessFile.writeBytes(jsonElement + "\n]");
+        } else{
+            randomAccessFile.writeBytes(",\n" + jsonElement + "]");
+        }
+        randomAccessFile.close();
+        }
 
 }

@@ -10,4 +10,6 @@ public interface JsonService {
     public Vol[] stringToJsonVols(String PathJson) throws Exception;
     public User[] stringToJsonUsers(String PathJson) throws Exception;
     public User addUser(String email) throws Exception;
+    public void addReservation(int volId, int userId) throws Exception;
+
 }
