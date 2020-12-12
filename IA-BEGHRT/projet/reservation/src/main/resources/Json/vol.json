@@ -5,7 +5,7 @@
     "aeroportId_arrive": 2,
     "prix": 100,
     "status": true,
-    "date": "10/12/2022",
+    "date": "2022-12-10",
     "nb_place_libre": 100
   },
   {
@@ -14,7 +14,7 @@
     "aeroportId_arrive": 3,
     "prix": 150,
     "status": true,
-    "date": "01/05/2021",
+    "date": "2021-05-01",
     "nb_place_libre": 100
   },
   {
@@ -23,7 +23,7 @@
     "aeroportId_arrive": 1,
     "prix": 200,
     "status": true,
-    "date": "03/08/2021",
+    "date": "2021-08-03",
     "nb_place_libre": 100
   },
   {
@@ -32,7 +32,7 @@
     "aeroportId_arrive": 3,
     "prix": 99,
     "status": true,
-    "date": "12/03/2021",
+    "date": "2021-12-03",
     "nb_place_libre": 100
   },
   {
@@ -41,7 +41,7 @@
     "aeroportId_arrive": 1,
     "prix": 150,
     "status": true,
-    "date": "08/05/2021",
+    "date": "2021-05-08",
     "nb_place_libre": 100
   },
   {
@@ -50,7 +50,7 @@
     "aeroportId_arrive": 2,
     "prix": 125,
     "status": true,
-    "date": "27/11/2021",
+    "date": "2021-11-27",
     "nb_place_libre": 100
   }
 ]

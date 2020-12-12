@@ -1,21 +1,30 @@
 package com.example.reservation.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Vol {
 
+    @JsonProperty("volId")
     private int volId;
 
-    private int aeroportId_depart;
+    @JsonProperty("aeroportId_depart")
+    private Object aeroportId_depart;
 
-    private int aeroportId_arrive;
+    @JsonProperty("aeroportId_arrive")
+    private Object aeroportId_arrive;
 
+    @JsonProperty("prix")
     private int prix;
 
+    @JsonProperty("status")
     private Boolean status;
 
+    @JsonProperty("date")
     private Date date;
 
+    @JsonProperty("nb_place_libre")
     private int nb_place_libre;
 
 
@@ -27,19 +36,19 @@ public class Vol {
         this.volId = volId;
     }
 
-    public int getAeroportId_depart() {
+    public Object getAeroportId_depart() {
         return aeroportId_depart;
     }
 
-    public void setAeroportId_depart(int aeroportId_depart) {
+    public void setAeroportId_depart(Object aeroportId_depart) {
         this.aeroportId_depart = aeroportId_depart;
     }
 
-    public int getAeroportId_arrive() {
+    public Object getAeroportId_arrive() {
         return aeroportId_arrive;
     }
 
-    public void setAeroportId_arrive(int aeroportId_arrive) {
+    public void setAeroportId_arrive(Object aeroportId_arrive) {
         this.aeroportId_arrive = aeroportId_arrive;
     }
 
