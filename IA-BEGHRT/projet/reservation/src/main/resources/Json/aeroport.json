@@ -1,0 +1,19 @@
+[
+    {
+      "areroportId": 1,
+      "nom_Aeroport": "New York",
+      "code_Aeroport": "JFK"
+    },
+    {
+      "areroportId": 2,
+      "nom_Aeroport": "CDG Paris",
+      "code_Aeroport": "CDG"
+    },
+    {
+      "areroportId": 3,
+      "nom_Aeroport": "CDG Paris",
+      "code_Aeroport": "CDG"
+    }
+]
+
+
