@@ -22,28 +22,19 @@
                         <p style="font-size: 20; color: #FF1C19;">L'adresse email ou le mot de passe invalide.</p>
                     </div>
 
-                    <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Connexion" style="margin-right:10px;"></button>
-                    <a href="/recover-password">Mot de passe oublié ?</a> |
-                    <a href="/register">S'inscrire</a>
+                    <a href="/dashboard">
+                        <button class="btn btn-lg btn-primary" onclick="login()" name="Submit" value="Login" type="Submit" th:text="Connexion" style="margin-right:10px;"></button>
+                    </a>
 
                 </form>
             </div>
         </div>
     <script>
-        function login(email) {
-
-  $.ajax({
-     type: 'POST',
-     url: "/reserver/"+email,
-     contentType: 'text/plain',
-     success:function(response) {
-         console.log("good");
-     },
-     error : function(response){
-         console.log("wrong");
-     }
- });
-  }
+        function login() {
+            console.log("hi1");
+            window.location.href = "http://localhost:8080/dashboard";
+            console.log("hi");
+        }
     </script>
     </body>
 </html>
