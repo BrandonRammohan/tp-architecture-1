@@ -16,7 +16,7 @@
 <style>
   body {
   font-family: Jockey one;
-  background-color: #2c3335;
+   background-color: #2c3335;
   color: red;
 }
 
@@ -26,8 +26,8 @@
 
 .myHeader {
   padding: 10px;
-  background-color: #1d2021;
-  color: #0ab5d4;
+  background-color:#337ab7;
+  color: white;
   padding-top: 25px;
 }
 
@@ -38,7 +38,6 @@ h1 {
 .flightList {
   background-color: #474d4f;
   padding: 20px;
-  border-radius: 12px;
 }
 
 h3 {
@@ -131,24 +130,26 @@ input {
   <!-- BANNIERE -->
   <div class="maincontent overlay container-fluid">
     <div class="myHeader">
-      <h1 class="text-center">[HC] Airline Ticket Reservation System</h1>
+      <h1 class="text-center">[Flight Book] Reservez vos billets d'avion en quelques secondes ! </h1>
   </div>
+    <a href="/login"><button>Déconnexion</button></a>
+    <a href="/reservation"><button>Mes réservations</button></a>
     <br />
     <br />
 
     <div class="flightList container">
-      <h3 class=" choosehead text-center">Choose one of the following flights:</h3>
+      <h3 class=" choosehead text-center">Veuillez choisir un des vols:</h3>
       <div class="row flightHeader">
         <div class="col-sm-2">
-          <h4 class="text-center">Serial No</h4>
+          <h4 class="text-center">No Serie</h4>
         </div>
 
         <div class="col-sm">
-          <h4 class="text-center">Date</h4>
+          <h4 class="text-center">Date Départ</h4>
         </div>
 
         <div class="col-sm">
-          <h4 class="text-center">Nb places</h4>
+          <h4 class="text-center">Nb places dispo.</h4>
         </div>
 
         <div class="col-sm">
@@ -194,15 +195,15 @@ input {
             </div>
             <!-- Depart -->
             <div class="col-sm">
-              <h5 class="text-center flsrc flightNo1" th:text="${vol.aeroportId_depart}"></h5>
+              <h5 class="text-center flsrc flightNo1" th:text="${vol.aeroportId_depart.nom_Aeroport}"></h5>
             </div>
             <!-- Arrivée -->
             <div class="col-sm">
-              <h5 class="text-center fldst flightNo1" th:text="${vol.aeroportId_arrive}"></h5>
+              <h5 class="text-center fldst flightNo1" th:text="${vol.aeroportId_arrive.nom_Aeroport}"></h5>
             </div>
             <!-- Status -->
             <div class="col-sm">
-              <h5 class="text-center flstat flightNo1" th:text="${vol.status}"></h5>
+              <h5 class="text-center flstat flightNo1" th:text="${vol.status} == true ? 'Disponible' : 'Indisponible'"></h5>
             </div>
             <!-- Prix -->
             <div class="col-sm">
@@ -297,10 +298,10 @@ input {
   <br />
   </div>
   </div>
-
+<!--
   <div class="container inputs my-3">
    
-   <!-- <form id="enterFlightNo">
+    <form id="enterFlightNo">
       <div class="row">
         <div class="col-sm-4">
           <p class="text-left">Enter flight number you want to travel in: <br /><span class="text-center text-info">Enter "list" to see the complete list again.</span></p>
@@ -308,12 +309,12 @@ input {
         <div class="col-sm-4">
           <input id="fNo" class="text-center" type="text" name="fnum" placeholder="Flight Number eg:4563"><br>
         </div>
-      -->
+
 
         <div class="col-sm-4">
           <button type="button" id="flightNoBtn" class="btn btn-primary text-right">Submit</button>
         </div>
-      </div>
+      </div>  -->
 <!--
     </form>
   
