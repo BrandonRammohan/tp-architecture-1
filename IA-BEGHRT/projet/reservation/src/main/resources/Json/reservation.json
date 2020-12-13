@@ -1,15 +1,3 @@
 [
 
-{ "reservationId":1, 
- "userId":1, 
- "volId":1
-}
-,
-{ "reservationId":2, 
- "userId":2, 
- "volId":2
-},
-{ "reservationId":3, 
- "userId":1, 
- "volId":1
-}]
+]
