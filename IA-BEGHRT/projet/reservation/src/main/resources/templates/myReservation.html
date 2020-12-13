@@ -1,0 +1,244 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservation System</title>
+    <link href="dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="dashboard.js"></script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+
+</head>
+
+<body>
+<style>
+  body {
+  font-family: Jockey one;
+  background-color: #2c3335;
+  color: red;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+.myHeader {
+  padding: 10px;
+  background-color:#337ab7;
+  color: white;
+  padding-top: 25px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.flightList {
+  background-color: #474d4f;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h3 {
+  padding: 15px;
+  color: #eef1f2;
+  padding-bottom: 25px;
+  font-size: 35px;
+}
+
+.flightHeader {
+  background: #555e5f;
+  padding: 5px;
+  border-radius: 12px;
+  color: #0ab5d4;
+}
+.flightsMain {
+  padding-top: 25px;
+  color: white;
+}
+
+.flight {
+  padding: 5px;
+  margin: 10px;
+  border-color: #98a0a2;
+}
+
+flight:hover: {
+  opacity: 0.6;
+}
+
+.flight {
+  transition: 0.5s;
+  opacity: 1;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #98a0a2;
+}
+.flight:hover {
+  background-color: #202627;
+  color: white;
+  transform: scale(1.1);
+  padding: 20px;
+}
+
+.inputs {
+  background-color: #474d4f;
+  padding: 20px;
+  border-radius: 12px;
+  color: #eef2f2;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+}
+
+input {
+  border-radius: 10px;
+  border: 2px;
+  margin: 2px;
+}
+
+
+
+.confirmation {
+}
+
+.flightcopy {
+  transition: 0.5s;
+  opacity: 1;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #98a0a2;
+  padding: 15px;
+}
+.flightcopy:hover {
+  background-color: #202627;
+  color: white;
+  transform: scale(1.1);
+  padding: 20px;
+}
+
+.inputs {
+  margin-top: 30px;
+}
+
+</style>
+
+
+
+<!-- BANNIERE -->
+<div class="maincontent overlay container-fluid">
+    <div class="myHeader">
+        <h1 class="text-center">[HC] Airline Ticket Reservation System</h1>
+    </div>
+    <a href="/login"><button>Déconnexion</button></a>
+    <a href="/dashboard"><button>Retour au dashboard</button></a>
+    <br />
+    <br />
+
+    <div class="flightList container">
+        <h3 class=" choosehead text-center">Choose one of the following flights:</h3>
+        <div class="row flightHeader">
+
+            <div class="col-sm-2">
+                <h4 class="text-center">Serial No</h4>
+            </div>
+
+            <div class="col-sm">
+                <h4 class="text-center">Date</h4>
+            </div>
+
+            <div class="col-sm">
+                <h4 class="text-center">Code reservation</h4>
+            </div>
+
+            <div class="col-sm">
+                <h4 class="text-center">Départ</h4>
+            </div>
+
+            <div class="col-sm">
+                <h4 class="text-center">Arrivée</h4>
+            </div>
+
+            <div class="col-sm">
+                <h4 class="text-center">Prix(€)</h4>
+            </div>
+
+        </div>
+
+        <!-- FIN BANNIERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+        <!-- DEBUT AFFICHAGE DES DESTINATION  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+        <div class="flightsMain">
+            <div class="allFlights" th:each="res : ${reservations}">
+
+                <div class="row flight 4563" id="4563">
+                    <!-- VolId -->
+                    <div class="col-sm">
+                        <h5 class="text-center srno flightNo1" th:text="${res.vol.volId}"></h5>
+                    </div>
+                    <!-- Date -->
+                    <div class="col-sm">
+                        <h5 class="text-center flno flightNo1" th:text="${res.vol.date}"></h5>
+                    </div>
+                    <!-- Nb Places -->
+                    <div class="col-sm">
+                        <h5 class="text-center flnbp flightNo1" th:text="${res.vol.aeroportId_depart.code_Aeroport}+'-'+${res.vol.aeroportId_arrive.code_Aeroport}+' '+${res.vol.prix}"></h5>
+                    </div>
+                    <!-- Depart -->
+                    <div class="col-sm">
+                        <h5 class="text-center flsrc flightNo1" th:text="${res.vol.aeroportId_depart.nom_Aeroport}"></h5>
+                    </div>
+                    <!-- Arrivée -->
+                    <div class="col-sm">
+                        <h5 class="text-center fldst flightNo1" th:text="${res.vol.aeroportId_arrive.nom_Aeroport}"></h5>
+                    </div>
+                    <!-- Prix -->
+                    <div class="col-sm">
+                        <h5 class="text-center flprc flightNo1" th:text="${res.vol.prix}"></h5>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- FIN AFFICHAGE DES DESTINATION -->
+
+    </div>
+</div>
+<br />
+<br />
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+document.ready
+  function reservation(id) {
+
+  $.ajax({
+     type: 'POST',
+     url: "/reserver/"+id,
+     contentType: 'text/plain',
+     success:function(response) {
+         console.log("good");
+     },
+     error : function(response){
+         console.log("wrong");
+     }
+ });
+
+  }
+
+
+</script>
+
+</body>
+</html>
