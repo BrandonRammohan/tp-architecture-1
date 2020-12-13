@@ -10,10 +10,10 @@ public class Vol {
     private int volId;
 
     @JsonProperty("aeroportId_depart")
-    private Object aeroportId_depart;
+    private int aeroportId_depart;
 
     @JsonProperty("aeroportId_arrive")
-    private Object aeroportId_arrive;
+    private int aeroportId_arrive;
 
     @JsonProperty("prix")
     private int prix;
@@ -36,19 +36,19 @@ public class Vol {
         this.volId = volId;
     }
 
-    public Object getAeroportId_depart() {
+    public int getAeroportId_depart() {
         return aeroportId_depart;
     }
 
-    public void setAeroportId_depart(Object aeroportId_depart) {
+    public void setAeroportId_depart(int aeroportId_depart) {
         this.aeroportId_depart = aeroportId_depart;
     }
 
-    public Object getAeroportId_arrive() {
+    public int getAeroportId_arrive() {
         return aeroportId_arrive;
     }
 
-    public void setAeroportId_arrive(Object aeroportId_arrive) {
+    public void setAeroportId_arrive(int aeroportId_arrive) {
         this.aeroportId_arrive = aeroportId_arrive;
     }
 

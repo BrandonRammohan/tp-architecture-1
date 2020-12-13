@@ -1,23 +1,15 @@
 [
 
 { "reservationId":1, 
- "userId":3, 
- "volId":3
+ "userId":1, 
+ "volId":1
 }
 ,
 { "reservationId":2, 
- "userId":3, 
- "volId":5
+ "userId":2, 
+ "volId":2
 },
 { "reservationId":3, 
- "userId":3, 
- "volId":6
-},
-{ "reservationId":4, 
  "userId":1, 
- "volId":4
-},
-{ "reservationId":5, 
- "userId":1, 
- "volId":3
+ "volId":1
 }]

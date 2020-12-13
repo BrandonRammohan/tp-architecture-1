@@ -1,9 +1,6 @@
 package com.example.reservation.JsonAccess;
 
-import com.example.reservation.Model.Aeroport;
-import com.example.reservation.Model.Reservation;
-import com.example.reservation.Model.User;
-import com.example.reservation.Model.Vol;
+import com.example.reservation.Model.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -11,10 +8,7 @@ import org.springframework.stereotype.Service;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class IJsonService implements JsonService {
@@ -116,6 +110,7 @@ public class IJsonService implements JsonService {
             }
         }
 
+        String PathJsonVols="src/main/resources/Json/vol.json";
         String PathJson="src/main/resources/Json/reservation.json";
 
         Reservation reservations[] = this.stringToJsonReservation(PathJson);
@@ -133,4 +128,97 @@ public class IJsonService implements JsonService {
         randomAccessFile.close();
         }
 
+        public List<ReservationFront> getReservationFront(User activUser) throws Exception {
+
+            String airportfile = "src/main/resources/Json/aeroport.json";
+            String volfile = "src/main/resources/Json/vol.json";
+            String reservationfile = "src/main/resources/Json/reservation.json";
+            String userfile = "src/main/resources/Json/user.json";
+
+            Aeroport aeroports[] = this.stringToJsonAirports(airportfile);
+            Vol vols[] = this.stringToJsonVols(volfile);
+            User users[] = this.stringToJsonUsers(userfile);
+            Reservation reservations[] = this.stringToJsonReservation(reservationfile);
+            List<ReservationFront> rFront = new ArrayList<>();
+            List<VolFront> vFront = new ArrayList<>();
+
+            for(Reservation elem : reservations) {
+                //User
+                Optional<User> tmpUsr = Arrays.stream(users).filter(user -> user.getUserId() == elem.getUserId()).findAny();
+                User usrtmp1 = new User();
+                usrtmp1.setEmail(tmpUsr.get().getEmail());
+                usrtmp1.setUserId(tmpUsr.get().getUserId());
+
+                if (usrtmp1.getUserId() == activUser.getUserId()) {
+                    //Vol
+                    Optional<Vol> tmpVol = Arrays.stream(vols).filter(vol -> vol.getVolId() == elem.getVolId()).findAny();
+                    Vol volTmp1 = new Vol();
+
+                    //VolFront //Aeroport Depart
+                    Optional<Aeroport> tmpAirportDepart = Arrays.stream(aeroports).filter(airport -> airport.getAreroportId()
+                            == tmpVol.get().getAeroportId_depart()).findAny();
+
+                    //VolFront //Aeroport Arrivée
+                    Optional<Aeroport> tmpAirportArrive = Arrays.stream(aeroports).filter(airport -> airport.getAreroportId()
+                            == tmpVol.get().getAeroportId_arrive()).findAny();
+
+                    VolFront volFrontTmp = new VolFront();
+
+                    volFrontTmp.setVolId(tmpVol.get().getVolId());
+                    volFrontTmp.setAeroportId_arrive(tmpAirportDepart.get());
+                    volFrontTmp.setAeroportId_depart(tmpAirportArrive.get());
+                    volFrontTmp.setDate(tmpVol.get().getDate());
+                    volFrontTmp.setNb_place_libre(tmpVol.get().getNb_place_libre());
+                    volFrontTmp.setStatus(tmpVol.get().getStatus());
+                    volFrontTmp.setPrix(tmpVol.get().getPrix());
+
+                    //Reservationn Front
+                    ReservationFront tmpRf = new ReservationFront();
+                    tmpRf.setUser(usrtmp1);
+                    tmpRf.setVol(volFrontTmp);
+
+                    //On le add dans le Reservation Front
+                    rFront.add(tmpRf);
+                }
+            }
+            return rFront;
+        }
+
+    public List<VolFront> getVolsFront(User activUser) throws Exception {
+
+        String airportfile = "src/main/resources/Json/aeroport.json";
+        String volfile = "src/main/resources/Json/vol.json";
+
+        Aeroport aeroports[] = this.stringToJsonAirports(airportfile);
+        Vol vols[] = this.stringToJsonVols(volfile);
+        List<VolFront> vFront = new ArrayList<>();
+
+        for (Vol elem : vols) {
+            //Vol
+            Optional<Vol> tmpVol = Arrays.stream(vols).filter(vol -> vol.getVolId() == elem.getVolId()).findAny();
+            Vol volTmp1 = new Vol();
+
+            //VolFront //Aeroport Depart
+            Optional<Aeroport> tmpAirportDepart = Arrays.stream(aeroports).filter(airport -> airport.getAreroportId()
+                    == tmpVol.get().getAeroportId_depart()).findAny();
+
+            //VolFront //Aeroport Arrivée
+            Optional<Aeroport> tmpAirportArrive = Arrays.stream(aeroports).filter(airport -> airport.getAreroportId()
+                    == tmpVol.get().getAeroportId_arrive()).findAny();
+
+            VolFront volFrontTmp = new VolFront();
+
+            volFrontTmp.setVolId(tmpVol.get().getVolId());
+            volFrontTmp.setAeroportId_arrive(tmpAirportDepart.get());
+            volFrontTmp.setAeroportId_depart(tmpAirportArrive.get());
+            volFrontTmp.setDate(tmpVol.get().getDate());
+            volFrontTmp.setNb_place_libre(tmpVol.get().getNb_place_libre());
+            volFrontTmp.setStatus(tmpVol.get().getStatus());
+            volFrontTmp.setPrix(tmpVol.get().getPrix());
+
+            //On le add dans le Reservation Front
+            vFront.add(volFrontTmp);
+        }
+        return vFront;
+    }
 }
